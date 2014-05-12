@@ -1,0 +1,40 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+
+    <script>
+
+    var collection = new Backbone.Collection;
+
+    collection.add([
+        {
+            id: 1,
+            title: 'Momo',
+            pages: 100,
+        },
+        {
+            id: 2,
+            title: 'New book',
+            page: 200
+        }
+    ]);
+
+    collection.add({ id: 1, title: 'Another title'}, {merge: true});
+
+    console.log(JSON.stringify(collection.toJSON()));
+        
+    </script>
+        
+    </body>
+</html>

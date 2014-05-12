@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+
+
+    <script>
+
+    var Book = Backbone.Model.extend({
+        defaults: {
+            title: '',
+            pages: 0
+        },
+        initialize: function(){
+            console.log('Tenemos un nuevo libro!');
+            this.on('change', function(){
+                console.log('Mi libro ha sido modificado');
+            });
+        }
+    });
+
+    var book = new Book();
+
+    console.log('Cambiaremos el título');
+    book.set('title', 'Los trabajos de Persiles y Sigismunda');
+    console.log('Cambiaremos el número de páginas');
+    book.set('pages', 300);
+        
+    </script>
+        
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+
+
+    <script>
+
+    var Book = Backbone.Model.extend({
+        defaults: {
+            title: '',
+            pages: 0
+        }
+    });
+
+    var book1 = new Book();
+
+    book.set('title', 'Don Quijote de la Mancha');
+    book.set('pages', 200);
+
+    console.log(book.toJSON());
+
+    var book2 = new Book();
+
+    book2.set({
+        title: 'La Arcadia',
+        pages: 250,
+        author: 'Felix Lope de Vega'
+    });
+
+    console.log(book2.toJSON());
+        
+    </script>
+        
+    </body>
+</html>

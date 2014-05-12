@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        <div id="main"></div>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+
+        <script type="text/template" id="template">
+        <div>
+            <h1><%= title %></h1>
+            <button class="hello">Botón hola</button>
+            <button class="bye">Botón adios</button>
+        </div>
+        </script>
+
+
+    <script>
+
+    var View = Backbone.View.extend({
+        el: '#main',
+
+        initialize: function(){
+            this.render();
+        },
+        render: function(){
+            var template = _.template($('#template').html(), { title: 'Este es mi título' });
+            this.$el.html(template);
+        },
+        events: {
+            'click .hello': 'hello',
+            'click .bye': 'bye'
+        },
+        hello: function(){
+            console.log('Hola mundo');
+        },
+        bye: function(){
+            console.log('Bye mundo');
+        }
+
+    });
+
+    var view = new View();
+        
+    </script>
+        
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        <button id="button1">Botón 1</button>
+        <button id="button2">Botón 2</button>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+
+
+    <script>
+
+    var View = Backbone.View.extend({
+        events: {
+            click: function(e){
+                alert('Hello');
+            }
+        }
+    });
+
+    var view = new View();
+
+    view.setElement($("#button1"));
+    view.setElement($("#button2"));
+        
+    </script>
+        
+    </body>
+</html>
