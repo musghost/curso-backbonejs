@@ -1,0 +1,74 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        <div id="main">
+            <input type="checkbox">
+        </div>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+
+
+    <script>
+
+    var Ruteador = Backbone.Router.extend({
+
+        routes: {
+
+            'inicio': 'funcionInicio',
+
+            'libro/:id': 'mostrarLibro',
+
+            'buscar/:query': 'buscarLibro',
+
+            'buscar/:query/:page': 'buscarLibro',
+
+            'libros/:id/descargar/*url': 'descargar',
+
+            '*cualquier': 'rutaDefault',
+
+            'opcional(/:variable)': 'variableOpcional',
+
+            'mi/libro/(y:z)': 'nombreOpcional'
+        },
+
+        funcionInicio: function(){
+            console.log('Función inicio');
+        },
+
+        mostrarLibro: function(id){
+            console.log('Este es el libro: ' + id);
+        },
+
+        buscarLibro: function(query, page){
+            var pageNumber = page || 1;
+
+            console.log('Página: ' + pageNumber + ', para la búsqueda: ' + query);
+        },
+
+        descargar: function(id, url){
+
+        },
+
+        rutaDefault: function(cualquier){
+
+        }
+    });
+
+    var ruteador = new Ruteador();
+
+    Backbone.history.start();
+        
+    </script>
+        
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+
+
+    <script>
+
+    var pizza = {};
+
+    _.extend(pizza, Backbone.Events);
+
+    function pedirPizza (restaurante) {
+        console.log('Pedimos pizza de: ' + restaurante);
+    }
+
+    pizza.on('all', function(evento){
+        console.log(evento + '? Sabemos que la pizza es deliciosa.');
+    });
+
+    pizza.on("pedirpizza", pedirPizza);
+
+    pizza.trigger("pedirpizza", "Pizza Hot");
+
+    pizza.off('pedirpizza');
+
+    pizza.trigger("pedirpizza", "Pizza Hot");
+        
+    </script>
+        
+    </body>
+</html>

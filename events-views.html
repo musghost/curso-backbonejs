@@ -1,0 +1,54 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        <div id="main">
+            <input type="checkbox">
+        </div>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+
+
+    <script>
+
+    var Vista = Backbone.View.extend({
+        el: '#main',
+
+        events: {
+            'click [type="checkbox"]': 'miEvento'
+        },
+
+        initialize: function(){
+            this.$el.click(this.clickJQuery);
+            this.on('clickAPI', this.clickAPIFunction);
+        },
+
+        miEvento: function(e){
+            console.log('evento de ' + this.el.outerHTML);
+            this.trigger('clickAPI', e.type);
+        },
+
+        clickJQuery: function(e){
+            console.log('jQuery de' + this.outerHTML);
+        },
+
+        clickAPIFunction: function(e){
+            console.log('evento: ' + e);
+        }
+    });
+
+    var vista = new Vista();
+        
+    </script>
+        
+    </body>
+</html>
