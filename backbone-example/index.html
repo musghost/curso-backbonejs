@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" data-framework="backbonejs">
+	<head>
+		<meta charset="utf-8">
+		<title>Backbone.js • TodoMVC</title>
+		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="custom.css">
+	</head>
+	<body>
+		<div class="container">
+			<section id="main">
+
+
+				<h2>Mis libros</h2>
+				<div id="input">
+					<h4>Agregar libro</h4>
+					<div class="row">
+						<div class="col-md-7">
+							<input type="text" placeholder="Agregar un libro" class="form-control" id="book-title">
+						</div>
+						<div class="col-md-1">
+							<input type="text" placeholder="Pág" class="form-control" id="book-pages">
+						</div>
+						<div class="col-md-1">
+							<input type="checkbox" id="read">
+						</div>
+						<div class="col-md-3">
+							<button class="btn btn-primary" type="button" id="add-book">Agregar</button>
+						</div>
+					</div>
+				</div>
+				<h4>Todos mis libros</h4>
+				<ul id="list"></ul>
+				<div id="options"></div>
+
+
+
+			</section>
+		</div>
+		<script type="text/template" id="item">
+				<li>
+					<div class="book">
+						<div class="book-labels">
+							<div class="row">
+								<div class="col-md-7">
+									<label><%- title %></label>
+								</div>
+								<div class="col-md-1">
+									<label><%- pages %></label>
+								</div>
+								<div class="col-md-1">
+									<label><%= read === true ? 'Leído' : 'No leído' %></label>
+								</div>
+								<div class="col-md-3">
+									<button class="btn edit" type="button">Editar</button>
+									<button class="btn btn-danger delete" type="button">Eliminar</button>
+								</div>
+							</div>
+						</div>
+						<div class="book-form hide">
+							<div class="row">
+								<div class="col-md-7">
+									<input type="text" placeholder="Agregar un libro" class="form-control title" value="<%- title %>">
+								</div>
+								<div class="col-md-1">
+									<input type="text" placeholder="Pág" class="form-control" value="<%- pages %>">
+								</div>
+								<div class="col-md-1">
+									<input type="checkbox" class="toggle" <%= read === true ? 'checked' : '' %>>
+								</div>
+								<div class="col-md-3">
+									<button class="btn btn-primary save" type="button">Guardar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+		</script>
+		<script type="text/template" id="options-template">
+				<h4>Libros: <%- count %></h4>
+				<ul id="links">
+					<li>
+						<a href="#/">Todos</a>
+					</li>
+					<li>
+						<a href="#/leidos">Leídos</a>
+					</li>
+					<li>
+						<a href="#/librotes">Librotes</a>
+					</li>
+				</ul>
+				<button type="button" class="btn btn-danger">Vaciar libros</button>
+		</script>
+		<script src="bower_components/jquery/dist/jquery.js"></script>
+		<script src="bower_components/underscore/underscore.js"></script>
+		<script src="bower_components/backbone/backbone.js"></script>
+		<script src="bower_components/backbone.localStorage/backbone.localStorage.js"></script>
+		<script src="js/models/book.js"></script>
+		<script src="js/collections/books.js"></script>
+		<script src="js/views/book-view.js"></script>
+		<script src="js/views/app-view.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>
