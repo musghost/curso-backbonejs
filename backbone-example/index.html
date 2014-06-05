@@ -60,13 +60,13 @@
 						<div class="book-form hide">
 							<div class="row">
 								<div class="col-md-7">
-									<input type="text" placeholder="Agregar un libro" class="form-control title" value="<%- title %>">
+									<input type="text" placeholder="Agregar un libro" class="form-control title" value="<%- title %>" id="edit-title">
 								</div>
 								<div class="col-md-1">
-									<input type="text" placeholder="Pág" class="form-control" value="<%- pages %>">
+									<input type="text" placeholder="Pág" class="form-control" value="<%- pages %>" id="edit-pages">
 								</div>
 								<div class="col-md-1">
-									<input type="checkbox" class="toggle" <%= read === true ? 'checked' : '' %>>
+									<input type="checkbox" class="toggle" <%= read === true ? 'checked' : '' %>  id="edit-read">
 								</div>
 								<div class="col-md-3">
 									<button class="btn btn-primary save" type="button">Guardar</button>
