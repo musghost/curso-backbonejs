@@ -7,12 +7,16 @@ var app = app || {};
 		tagName:  'li',
 
 		events: {
-			'click .edit': 'edit'
+			'click .edit': 'edit',
+			'click .save': 'saveEdit',
+			'click .delete': 'removeBook'
 		},
 
 		template: _.template($('#item').html()),
 
 		initialize: function () { 
+			this.listenTo(this.model, 'change', this.render);
+			this.listenTo(this.model, 'destroy', this.remove);
 		},
 
 		render: function () {
@@ -27,6 +31,20 @@ var app = app || {};
 			this.$el.find('.book-labels').toggle('.hide');
 			this.$el.find('.book-form').removeClass('hide');
 			this.$el.find('.title').first().focus();
+		},
+		saveEdit:function () {
+			var book = this.$('.form-control.title').val(),
+				pages = this.$('.form-control.pages').val();
+				read = this.$('.toggle').is(':checked');	    
+
+		    this.model.save({
+		    	title: book,
+		    	pages: pages,
+		    	read: read
+		    });
+		},
+		removeBook: function () {
+			this.model.destroy();
 		}
 	});
 })(jQuery);
